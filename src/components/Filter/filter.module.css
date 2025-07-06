@@ -1,0 +1,8 @@
+.filter {
+  display: flex;
+  background-color: var(--background-white);
+  border-radius: var(--border-radius-out);
+  padding: var(--spacing-4);
+  box-shadow: var(--box-shadow-default);
+  width: 100%;
+}

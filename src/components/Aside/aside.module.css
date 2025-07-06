@@ -1,0 +1,80 @@
+.aside {
+  width: 250px;
+  height: 100vh;
+  background-color: var(--background-white);
+  box-shadow: var(--box-shadow-default);
+  position: relative;
+}
+
+.buttonContainer {
+  position: absolute;
+  top: 10px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  border-radius: var(--border-radius-out);
+  background-color: var(--background-black);
+  cursor: pointer;
+}
+
+.buttonContainer svg {
+  color: var(--text-white);
+}
+
+.aside .asideContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  height: 100%;
+}
+
+.asideContent .menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  width: 100%;
+}
+
+.menu .menuItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  color: var(--text-default);
+  cursor: pointer;
+  padding: var(--spacing-2);
+  border-radius: var(--border-radius-in);
+}
+
+.menuItem .menuLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: var(--text-default);
+  text-decoration: none;
+  padding: var(--spacing-2) var(--spacing-3);
+
+  width: 100%;
+  border-radius: var(--border-radius-in);
+  height: 40px;
+}
+
+.menuLink.active {
+  background-color: var(--primary-default);
+  color: var(--text-white);
+}
+
+.menuLink .menuIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuItem .menuLink:hover {
+  background-color: var(--primary-hover);
+  color: var(--text-white);
+}

@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 100%;
+  padding: var(--spacing-2);
+  border: var(--border-default);
+  border-radius: var(--border-radius-in);
+  box-shadow: var(--box-shadow-default);
+  font-size: var(--font-size-md);
+  color: var(--text-default);
+  background-color: var(--background-white);
+}
+
+.disabled {
+  background-color: var(--background-default);
+  color: rgba(0, 0, 0, 0.5);
+  cursor: not-allowed;
+}
+
+.container.focused {
+  border-color: var(--primary-default);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.container.focused .icon svg {
+  color: var(--primary-default);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-2);
+}
+
+.input {
+  width: 100%;
+}
+
+.showBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--spacing-2);
+}

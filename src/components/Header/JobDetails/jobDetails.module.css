@@ -1,0 +1,62 @@
+.jobContainer {
+  height: 40px;
+  border: var(--border-default);
+  border-radius: var(--border-radius-in);
+  padding: var(--spacing-1) var(--spacing-3);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  gap: var(--spacing-2);
+}
+.jobContainer .job {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+}
+.job .jobIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  color: var(--text-black);
+}
+
+.job .jobTitle {
+  color: var(--text-black);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-title);
+}
+
+.jobContainer .jobIconDown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.jobContainer .jobList {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 100%;
+  border: var(--border-default);
+  box-shadow: var(--box-shadow-default);
+  background-color: var(--background-white);
+  border-radius: var(--border-radius-in);
+  padding: var(--spacing-2);
+}
+.jobList .jobItem {
+  padding: var(--spacing-2);
+  color: var(--text-black);
+  cursor: pointer;
+  border-radius: var(--border-radius-in);
+}
+
+.jobList .jobItem:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

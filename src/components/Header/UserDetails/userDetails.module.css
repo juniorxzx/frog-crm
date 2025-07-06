@@ -1,0 +1,85 @@
+.userContainer {
+  height: 40px;
+  border: var(--border-default);
+  border-radius: var(--border-radius-in);
+  padding: var(--spacing-1) var(--spacing-3);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  gap: var(--spacing-1);
+}
+
+.userContainer .userAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userAvatar img {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-in);
+  object-fit: cover;
+}
+
+.userAvatar svg {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-in);
+  object-fit: cover;
+  color: var(--text-black);
+}
+
+.userContainer .userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  color: var(--text-black);
+}
+
+.userDetails .email {
+  font-size: var(--font-size-xs);
+  color: var(--text-black);
+  line-height: normal;
+}
+
+.userDetails .username {
+  font-size: var(--font-size-sm);
+  color: var(--text-black);
+  line-height: normal;
+}
+
+.userContainer .userIconDown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.userIconDown svg {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.userContainer .userList {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 100%;
+  border: var(--border-default);
+  background-color: var(--background-white);
+  box-shadow: var(--box-shadow-default);
+  border-radius: var(--border-radius-in);
+  padding: var(--spacing-2);
+}
+.userList .userItem {
+  padding: var(--spacing-2);
+  color: var(--text-black);
+  cursor: pointer;
+  border-radius: var(--border-radius-in);
+}
+
+.userList .userItem:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

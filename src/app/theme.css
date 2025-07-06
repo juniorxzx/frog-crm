@@ -1,0 +1,44 @@
+:root {
+  /* colors */
+  --primary-default: #81f56f;
+  --primary-hover: #4c9b2a;
+
+  --background-black: #353535;
+  --background-white: #ffffff;
+  --background-default: #fafbff;
+
+  --box-shadow-default: 0 0 1px rgba(0, 0, 0, 0.2);
+  --box-shadow-hover: 0px 2px 4px rgba(0, 0, 0, 0.15);
+
+  --text-default: #212529;
+  --text-white: #ffffff;
+
+  --border-default: 1px solid rgba(0, 0, 0, 0.3);
+  --border-radius-out: 16px;
+  --border-radius-in: 8px;
+  --border-radius-full: 50px;
+
+  --size-heading: 26px;
+  --size-title: 20px;
+  --size-body: 16px;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 40px;
+
+  --line-height-heading: 120%;
+  --line-height-title: 130%;
+  --line-height-body: 150%;
+
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+}

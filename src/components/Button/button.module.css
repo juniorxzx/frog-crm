@@ -1,0 +1,12 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  background-color: var(--primary-default);
+  color: var(--text-default);
+  border-radius: var(--border-radius-in);
+  border: var(--border-default);
+  box-shadow: var(--box-shadow-default);
+  cursor: pointer;
+}
