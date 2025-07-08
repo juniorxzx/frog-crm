@@ -12,9 +12,19 @@ interface InputProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   disabled?: boolean
   className?: string
+  maxLength?: number
 }
 
-const Input = ({ icon, placeholder, onChange, type, value, disabled, className }: InputProps) => {
+const Input = ({
+  icon,
+  placeholder,
+  onChange,
+  type,
+  value,
+  disabled,
+  className,
+  maxLength,
+}: InputProps) => {
   const [focused, setFocused] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   return (
@@ -34,6 +44,7 @@ const Input = ({ icon, placeholder, onChange, type, value, disabled, className }
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         disabled={disabled}
+        maxLength={maxLength}
       />
       {type === 'password' && (
         <div className={S.showBox} onClick={() => setShowPassword(!showPassword)}>

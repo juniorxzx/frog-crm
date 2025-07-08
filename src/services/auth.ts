@@ -29,4 +29,15 @@ export const Auth = {
 
     return response.data
   },
+
+  async searchByEmail(email: string) {
+    const response = await api.post('/auth/search', { email })
+    return response.data
+  },
+
+  async resetPassword(email: string, cpf: string, password: string) {
+    const response = await api.post('/auth/reset-password', { email, cpf, password })
+
+    return response.data
+  },
 }

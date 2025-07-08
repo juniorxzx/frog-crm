@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaUserCircle } from 'react-icons/fa'
 import { IoIosArrowDown } from 'react-icons/io'
+import { MdOutlineExitToApp, MdSettings } from 'react-icons/md'
+import { hoverItem } from '@/assets/framer-animations/hover-item'
+import { destroyCookie } from 'nookies'
 
 import S from './userDetails.module.css'
+import { useRouter } from 'next/navigation'
 
 interface User {
   name?: string
@@ -12,23 +16,39 @@ interface User {
 }
 const UserDetails = ({ avatar, email, name }: User) => {
   const [open, setOpen] = useState(false)
-  const user = {
-    name: 'Alexandre',
-    email: 'alexandre@frog.net.br',
-    avatar: '',
+  const [focused, setFocused] = useState(false)
+  const router = useRouter()
+
+  const handleItem = (id: number) => {
+    setOpen(false)
+    if (id === 1) {
+      router.push('/profile')
+    }
+    if (id === 2) {
+      router.push('/settings')
+    }
+
+    if (id === 3) {
+      destroyCookie(null, 'token')
+      router.push('/sign-in')
+    }
   }
 
   const items = [
     { id: 1, title: 'Perfil', icon: <FaUserCircle size={20} /> },
-    { id: 2, title: 'Ajustes', icon: <FaUserCircle size={20} /> },
-    { id: 3, title: 'Sair', icon: <FaUserCircle size={20} /> },
+    { id: 2, title: 'Ajustes', icon: <MdSettings size={20} /> },
+    {
+      id: 3,
+      title: 'Sair',
+      icon: <MdOutlineExitToApp size={20} />,
+    },
   ]
 
   return (
     <motion.div className={S.userContainer} onClick={() => setOpen(!open)}>
       <motion.div className={S.userAvatar}>
-        {user.avatar ? (
-          <img src={user.avatar} alt={user.name} className={S.avatarImage} />
+        {avatar ? (
+          <img src={`http://localhost:8080${avatar}`} alt={name} className={S.avatarImage} />
         ) : (
           <FaUserCircle size={30} className={S.defaultAvatar} />
         )}
@@ -47,12 +67,11 @@ const UserDetails = ({ avatar, email, name }: User) => {
             <motion.div
               key={item.id}
               className={S.userItem}
-              onClick={() => {
-                console.log(`Selected item: ${item.title}`)
-                setOpen(false)
-              }}
+              onClick={() => handleItem(item.id)}
+              {...hoverItem}
             >
-              {item.title}
+              <div className={S.icon}>{item.icon}</div>
+              <span className={S.text}>{item.title}</span>
             </motion.div>
           ))}
         </motion.div>

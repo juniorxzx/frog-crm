@@ -5,6 +5,7 @@ import { CgWorkAlt } from 'react-icons/cg'
 import { motion } from 'framer-motion'
 
 import S from './jobDetails.module.css'
+import { hoverItem } from '@/assets/framer-animations/hover-item'
 
 const JobDetails = () => {
   const [openJob, setOpenJob] = useState(false)
@@ -35,6 +36,7 @@ const JobDetails = () => {
                 console.log(`Selected job: ${job.title}`)
                 setOpenJob(false)
               }}
+              {...hoverItem}
             >
               {job.title}
             </motion.div>

@@ -14,6 +14,7 @@ const Header = () => {
     name: '',
     email: '',
     role: '',
+    avatarUrl: '',
   })
   const path = usePathname()
 
@@ -23,9 +24,10 @@ const Header = () => {
         const data = await Auth.profile()
         if (data) {
           setUser({
-            name: data.name || '',
+            name: data.username || '',
             email: data.email || '',
             role: data.role || '',
+            avatarUrl: data.avatar || '',
           })
           console.log('Profile data:', data)
         }
@@ -45,7 +47,7 @@ const Header = () => {
       </motion.div>
       <motion.div className={S.rightContainer}>
         <JobDetails />
-        <UserDetails avatar="" email={user.email} name={user.email} />
+        <UserDetails avatar={user.avatarUrl} email={user.email} name={user.name} />
       </motion.div>
     </header>
   )

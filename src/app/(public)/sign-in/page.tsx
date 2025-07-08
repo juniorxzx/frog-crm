@@ -11,12 +11,15 @@ import { motion } from 'framer-motion'
 import S from './sign-in.module.css'
 import { Auth } from '@/services/auth'
 import { parseCookies, setCookie } from 'nookies'
+import Popup from '@/components/Popup'
 
 export default function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [rememberMe, setRememberMe] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
   }
@@ -26,21 +29,26 @@ export default function SignIn() {
 
   const handleSubmit = async () => {
     try {
+      setLoading(true)
       const data = await Auth.signIn({
         email,
         password,
       })
       const token = data.access_token
-
       if (rememberMe) {
-        setCookie(null, 'token', token)
+        setCookie(null, 'token', token, {
+          maxAge: 60 * 60 * 24 * 4,
+        })
       } else {
         sessionStorage.setItem('token', token)
       }
-    } catch (error) {
-      console.error('Erro ao fazer login:', error)
+    } catch (error: any) {
+      setLoading(false)
+      setError(true)
+      console.error('Erro ao fazer login:', error.response.data.message)
     }
   }
+
   return (
     <main className={S.main}>
       <div className={S.container}>
@@ -62,6 +70,7 @@ export default function SignIn() {
               value={email}
               placeholder="Digite seu email"
               icon={<MdOutlineEmail size={20} />}
+              disabled={loading}
             />
             <div className={S.passwordContainer}>
               <Input
@@ -70,6 +79,7 @@ export default function SignIn() {
                 value={password}
                 placeholder="Digite sua senha"
                 icon={<MdLockOutline size={20} />}
+                disabled={loading}
               />
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -78,15 +88,16 @@ export default function SignIn() {
                 className={S.formActions}
               >
                 <Checkbox checked={rememberMe} label="Salvar login" onChange={setRememberMe} />
-                <Link href={'/forgot-password'} target="_blank" className={S.forgotPassword}>
+                <Link href={'/reset-password'} className={S.forgotPassword}>
                   Esqueci a senha
                 </Link>
               </motion.div>
             </div>
-            <Button label="Entrar" onClick={handleSubmit} />
+            <Button label="Entrar" onClick={handleSubmit} disabled={loading} />
           </div>
         </div>
       </div>
+      {error && <Popup message="Email ou senha incorretos" type="error" />}
     </main>
   )
 }

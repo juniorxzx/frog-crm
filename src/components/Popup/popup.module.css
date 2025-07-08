@@ -1,0 +1,76 @@
+/* Container principal do popup */
+.container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Estilo base do popup */
+.popup {
+  background: var(--background-black);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  pointer-events: auto;
+  overflow: hidden;
+  min-width: 60px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Container do conteúdo */
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-4);
+  white-space: nowrap;
+}
+
+/* Ícones */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorIcon {
+  color: var(--text-white);
+  width: 20px;
+  height: 20px;
+}
+/* Mensagem */
+.message {
+  color: var(--text-white);
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  line-height: 1.4;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popup:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+.popup * {
+  transition: all 0.2s ease;
+}
+
+.popup[data-initial='true'] {
+  opacity: 0;
+  transform: scale(0.3);
+}
